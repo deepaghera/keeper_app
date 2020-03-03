@@ -21,10 +21,20 @@ const NoteList = () => {
         }); 
     }
 
+    function handleSubmit(){
+        setNoteList((prevL) => {
+            return [...prevL,note];
+        });
+       setNote({
+            title:'',
+            content: ''
+        });
+    }
+
     return (
         <>
-        <InputNote note={note} handleChange={handleChange} />
-       {notes.map((el) => {
+        <InputNote note={note} handleChange={handleChange} handleSubmit={handleSubmit} />
+       {noteList.map((el) => {
            return(
               
                   <Note title={el.title} content={el.content} key={el.key} />
