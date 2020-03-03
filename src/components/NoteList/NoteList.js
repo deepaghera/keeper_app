@@ -43,7 +43,7 @@ const NoteList = () => {
 
         } );
        setNoteList(newvalue);
-        console.log(newvalue);
+       
     }
 
     return (
