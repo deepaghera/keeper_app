@@ -25,7 +25,7 @@ const NoteList = () => {
     function handleSubmit(){
 
         setNoteList((prevL) => {
-            console.log([...prevL,note,note.id=uid])
+            note.id=uid;
             return [...prevL,note];
         });
         setUid(uid+1);
@@ -38,7 +38,7 @@ const NoteList = () => {
 
     function handleDelete(id) {
         const newvalue = noteList.filter( (note) => {
-           
+          
             return note.id !== id;
 
         } );
