@@ -2,7 +2,7 @@ import React,{ useState } from 'react';
 import Note from '../Note/Note';
 import InputNote from '../InputNote/InputNote';
 const NoteList = () => {
-    const [ uid, setUid ] = useState(0);
+   
     const [ noteList , setNoteList ] = useState([]);
     const [ note , setNote ] = useState({
         title:'',
@@ -25,10 +25,10 @@ const NoteList = () => {
     function handleSubmit(){
 
         setNoteList((prevL) => {
-            note.id=uid;
+            
             return [...prevL,note];
         });
-        setUid(uid+1);
+      
        setNote({
             title:'',
             content: '',
@@ -37,22 +37,25 @@ const NoteList = () => {
     }
 
     function handleDelete(id) {
-        const newvalue = noteList.filter( (note) => {
-          
-            return note.id !== id;
-
-        } );
-       setNoteList(newvalue)
+       // console.log(id);
+        //const newvalue = noteList
+       setNoteList((prevList) => {
+           return prevList.filter( (note,index) => {
+           
+              return index !== id;
+  
+          } );
+       })
        
     }
 
     return (
         <>
         <InputNote note={note} handleChange={handleChange} handleSubmit={handleSubmit} />
-       {noteList.map((el) => {
+       {noteList.map((el, i) => {
            return(
               
-                  <Note handleDelete={handleDelete} id={el.id} title={el.title} content={el.content} key={el.id} />
+                  <Note handleDelete={handleDelete} id={i} title={el.title} content={el.content} key={i} />
               
            );
        })}
