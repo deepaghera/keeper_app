@@ -38,11 +38,11 @@ const NoteList = () => {
 
     function handleDelete(id) {
         const newvalue = noteList.filter( (note) => {
-            console.log("inside note",note.id , "and id=",id )
+           
             return note.id !== id;
 
         } );
-       setNoteList(newvalue);
+       setNoteList(newvalue)
        
     }
 
