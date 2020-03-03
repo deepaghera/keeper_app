@@ -23,7 +23,7 @@ const NoteList = () => {
 
     return (
         <>
-        <InputNote  handleChange={handleChange} />
+        <InputNote note={note} handleChange={handleChange} />
        {notes.map((el) => {
            return(
               

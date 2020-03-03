@@ -3,14 +3,14 @@ import './InputNote.css';
 
 
 
-const InputNote = ( { handleChange }) => {
+const InputNote = ( { handleChange , note}) => {
 
     return (
        <div className="cont">
             <div className="input-container">
-                <input name="title" onChange={handleChange} type="text" placeholder="Title"/> 
+                <input value={note.title} name="title" onChange={handleChange} type="text" placeholder="Title"/> 
                 <br/>
-                <input name="content" onChange={handleChange} type="text" placeholder="Take a note..." />
+                <input value={note.content} name="content" onChange={handleChange} type="text" placeholder="Take a note..." />
                 <button className="add-btn">Add</button>
             </div>
        </div>
