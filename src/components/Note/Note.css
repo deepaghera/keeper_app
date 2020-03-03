@@ -7,7 +7,7 @@
         width: 240px;
         margin: 16px;
         float: left;
-
+        transition: 0.4s;
 } 
 .notebox h1 {
     font-size: 1.1em;
@@ -19,3 +19,12 @@
     white-space: pre-wrap;
     word-wrap: break-word;
 }
+.notebox:hover{
+   
+    background: rgb(231, 209, 209);
+}
+
+/* .notebox h1::selection {
+    color: rgb(16, 118, 165);
+    background-color: rgb(160, 219, 229);
+} */
