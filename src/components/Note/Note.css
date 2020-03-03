@@ -24,6 +24,20 @@
     background: rgb(231, 209, 209);
 }
 
+.del-btn {
+   
+    border: none;
+    font-size: 15px;
+    position: relative;
+    left: 165px;
+    border-radius:10px ;
+    outline: none;
+    padding: 5px;
+    color: #FF4019;
+    bottom: 0px;
+    
+}
+
 /* .notebox h1::selection {
     color: rgb(16, 118, 165);
     background-color: rgb(160, 219, 229);

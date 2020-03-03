@@ -1,12 +1,13 @@
 import React,{ useState } from 'react';
 import Note from '../Note/Note';
-import notes from '../../notes';
 import InputNote from '../InputNote/InputNote';
 const NoteList = () => {
+    const [ uid, setUid ] = useState(0);
     const [ noteList , setNoteList ] = useState([]);
     const [ note , setNote ] = useState({
         title:'',
-        content: ''
+        content: '',
+        id : ''
     });
     
     function handleChange(event){
@@ -22,13 +23,27 @@ const NoteList = () => {
     }
 
     function handleSubmit(){
+
         setNoteList((prevL) => {
+            console.log([...prevL,note,note.id=uid])
             return [...prevL,note];
         });
+        setUid(uid+1);
        setNote({
             title:'',
-            content: ''
+            content: '',
+            id:''
         });
+    }
+
+    function handleDelete(id) {
+        const newvalue = noteList.filter( (note) => {
+            console.log("inside note",note.id , "and id=",id )
+            return note.id !== id;
+
+        } );
+       setNoteList(newvalue);
+        console.log(newvalue);
     }
 
     return (
@@ -37,7 +52,7 @@ const NoteList = () => {
        {noteList.map((el) => {
            return(
               
-                  <Note title={el.title} content={el.content} key={el.key} />
+                  <Note handleDelete={handleDelete} id={el.id} title={el.title} content={el.content} key={el.id} />
               
            );
        })}
